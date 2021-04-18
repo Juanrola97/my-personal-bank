@@ -1,5 +1,7 @@
 {
   "name": "my-personal-bank",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
