@@ -14,7 +14,7 @@ import { InputModule } from 'src/app/components/input/input.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    InputModule,,
+    InputModule,
     LoginPageRoutingModule
   ],
   declarations: [LoginPage]
