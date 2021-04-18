@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "my-personal-bank-a330f": {
+      "hosting": {
+        "app": [
+          "my-personal-bank-a330f"
+        ]
+      }
+    }
+  }
+}
