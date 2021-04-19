@@ -82,7 +82,7 @@ export class AuthService {
       console.error('Error => ' + error);
     }
   }
-  async resetPassword(email: string): Promise<User> {
+  async resetPassword(email: string): Promise<void> {
     try {
       return this.angularFireAuth.sendPasswordResetEmail(email);
     } catch (error) {
