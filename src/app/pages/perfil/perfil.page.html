@@ -6,13 +6,14 @@
         <ion-col size="10">
           <ion-row>
             <ion-col size="9">
-              <div style="font-weight: bold; display: block; white-space: pre-wrap; font-size: 16px;">JUAN SEBASTIAN
+              <div style="font-weight: bold; display: block; white-space: pre-wrap; font-size: 16px;">Nombre del Titular
               </div>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col size="9">
-              <div style="font-weight: bold; display: block; white-space: pre-wrap; font-size: 16px;">Correo</div>
+              <div style="font-weight: bold; display: block; white-space: pre-wrap; font-size: 16px;">Correo:
+                email@dominio.com</div>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -35,15 +36,53 @@
     </ion-title>
   </ion-card-header>
 
-  <div *ngFor="let lista of listas">
+  <div *ngFor="let cuenta of listas">
     <ion-card button padding>
       <ion-card-header>
-        Cuenta de ahorros
+        Numero de cuenta: {{cuenta.id}}
+        <br>
+        Tipo de cuenta: {{cuenta.tipoCuenta}}
       </ion-card-header>
       <ion-card-content>
-        Esta cuenta de ahorros tiene los siguientes
+        Saldo Disponible: {{cuenta.valor}}
+
+        <div slot="end" style="size: 10px">
+          <ion-button (click)="verDepositar(cuenta)" style="color: white" size="small">
+            <ion-icon name="settings" style="color: white"></ion-icon>
+          </ion-button>
+          <div *ngIf="cuenta.depositar">
+            <ion-item>
+              <ion-label position="floating">Valor a Depositar</ion-label>
+              <ion-input type="transaction-currency" #dinero></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-button expand="block" shape="round" (click)="depositarDinero(dinero, cuenta)">
+                Depositar</ion-button>
+            </ion-item>
+          </div>
+        </div>
+        <div slot="end" style="size: 10px">
+          <ion-button (click)="verTransferir(cuenta)" style="color: white" size="small">
+            <ion-icon name="cash" style="color: white"></ion-icon>
+          </ion-button>
+          <div *ngIf="cuenta.transferir">
+            <ion-item>
+              <ion-label position="floating">Valor a Transferir</ion-label>
+              <ion-input type="transaction-currency" #dinero></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Numero de cuenta</ion-label>
+              <ion-input type="transaction-currency" #numero_cuenta></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-button expand="block" shape="round" (click)="transferirDinero(dinero, numero_cuenta, cuenta)">
+                Transferir</ion-button>
+            </ion-item>
+          </div>
+        </div>
       </ion-card-content>
     </ion-card>
+
   </div>
 
 </ion-content>

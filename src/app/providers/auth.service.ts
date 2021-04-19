@@ -36,6 +36,7 @@ export class AuthService {
         email,
         password
       );
+      this.obtenerAccountsBank();
       this.updateUserData(user);
       return user;
     } catch (error) {
@@ -101,5 +102,11 @@ export class AuthService {
       displayName: user.displayName,
     };
     return userRef.set(data, { merge: true });
+  }
+
+  private async obtenerAccountsBank() {
+    const userRef = await this.angularFirestore.doc(`accounts-bank/pUcNjAtrcFt8uxyQQxnR`).get().toPromise();
+    console.log('userReferencia' + userRef);
+    // return userRef.get();
   }
 }
